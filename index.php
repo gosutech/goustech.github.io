@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
+    <meta name="title" content="POMN | Proof of Masternodes">
+<meta name="description" content="Earn 15% of your referral's deposit when they use your Masternode!">
+    <meta name="author" content="POMN"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:site" content="@POMN"><meta property="og:type" content="website"><meta property="og:site_name" content="POMN | POMN | Proof of Masternodes"><meta property="og:title" content="POMN | Proof of Masternodes"><meta property="og:description" content="Earn 15% of your referral's deposit when they use your Masternode!"><meta property="og:image" content="https://pomn.co/fbog.jpg"><meta property="og:url" content="https://pomn.co/"><meta name="author" content="">
+    <link rel="shortcut icon" href="favicon.png">
+    <title>POMN | Proof of Masternodes</title>
+
+    <!-- Font Awesome -->
+    <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+
+    <!-- Semantic UI -->
+    <link rel="stylesheet" type="text/css" href="semantic/dist/semantic.min.css">
+    <script
+            src="https://code.jquery.com/jquery-3.1.1.min.js"
+            integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+            crossorigin="anonymous"></script>
+    <script src="semantic/dist/semantic.min.js"></script>
+    <script src="js/common.js"></script>
+    <script type="text/javascript">
+	function getCookie(name) {
+    		var dc = document.cookie;
+    		var prefix = name + "=";
+    		var begin = dc.indexOf("; " + prefix);
+    
+		if (begin == -1) {
+        		begin = dc.indexOf(prefix);
+        		if (begin != 0) return null;
+    		}
+    		else
+    		{
+        		begin += 2;
+        		var end = document.cookie.indexOf(";", begin);
+        		if (end == -1) {
+        		end = dc.length;
+        	}
+    		}
+    	
+		return decodeURI(dc.substring(begin + prefix.length, end));
+	} 
+
+	var url_string = window.location.href;
+	var url = new URL(url_string);
+	var theCookie = "masternode=" + url.searchParams.get("masternode");
+	
+	if (url.searchParams.get("masternode") !== null) {
+		var toSet = "masternode=" + url.searchParams.get("masternode");
+		document.cookie=theCookie;	
+	} else {
+
+		var refCookie = getCookie("masternode");
+
+		if (refCookie === null) {
+			console.log("Ref cookie was null. Setting to default.");
+			document.cookie = "masternode=0x85abE8E3bed0d4891ba201Af1e212FE50bb65a26";
+		} else {
+			// do nothing if the cookie is already set and there is no new mnode link	
+		}
+	}
+    </script>
+
+    <!-- Custom Styles -->
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+    <link rel="stylesheet" type="text/css" href="css/token_sale.css">
+
+    <!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-W37GJPF');</script>
+<!-- End Google Tag Manager -->
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-70457474-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-70457474-1');
+</script>
+
+
+</head>
+
+<body class="lang_us home">
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-W37GJPF"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+<!-- Sidebar Menu -->
+<div class="ui vertical inverted sidebar menu">
+    <a class="item" href="/">Home</a>
+    <a class="item" href="/dashboard">My Coins</a>
+    <a class="item" href="https://etherscan.io/address/0x351544927a64a458a87a91c33718487098873b87">Contract</a>
+    <a class="item" href="/how-to-play">How To Play</a>
+    <a class="item" href="https://etherscan.io/address/0x351544927a64a458a87a91c33718487098873b87">Smart Contract</a>
+</div>
+
+<!-- Following Menu -->
+<div class="ui large top fixed hidden menu inverted">
+    <div class="ui container">
+        <a class="toc item">
+            <i class="sidebar icon"></i>
+        </a>
+        <a href="/" class="logo header item">
+            <img src="images/minilogo.png">
+        </a>
+        <a class="item" href="/dashboard">My Coins</a>
+	<a class="item" href="https://etherscan.io/address/0x351544927a64a458a87a91c33718487098873b87">Contract</a>
+        <a class="item" href="/how-to-play">How To Play</a>
+        <div class="right menu">
+            <div class="social-bits">
+                <a href="https://discord.gg/ecpjFds" target="_blank">
+                    <i class="fab fa-discord"
+                       style="color:white"></i></a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Page Contents -->
+<div class="pusher">
+    <div class="ui masthead vertical center aligned segment">
+        <div class="ui container main-menu">
+            <div class="ui large secondary top inverted menu">
+                <a class="toc item">
+                    <i class="sidebar icon"></i>
+                </a>
+                <a class="item" href="/dashboard">My Coins</a>
+		<a class="item" href="https://etherscan.io/address/0x351544927a64a458a87a91c33718487098873b87">Contract</a>
+                <a class="item" href="/how-to-play">How To Play</a>
+
+                <div class="right item">
+                    <!-- Social Icons -->
+                    <div class="social-bits">
+                        <a href="https://discord.gg/ecpjFds" target="_blank">
+                            <i class="fab fa-discord"
+                               style="color:white"></i></a>
+                    </div>
+
+                    <!-- Language Selector -->
+                    <div class="ui inline dropdown lang-selector">
+                        <a href="#" class="text">
+                            <i class="us flag"></i>
+                        </a>
+                        <i class="dropdown icon"></i>
+                        <div class="menu">
+                            <a href="/" class="item text"><i class="us flag"></i> English (US)</a>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Jumbotron -->
+        <div class="ui text container jumbotron">
+            <img width="350" height="350" class="logo" src="images/servermain.gif" alt="POMN | Proof of Masternode">
+            <h2><b>Earn <b><u>15%</u></b> of the total purchase each time someone uses your Masternode!</b></h2>
+            <a href="/dashboard" class="ui huge primary button">Get Some Coins<i class="right arrow icon"></i></a>
+            <a href="https://etherscan.io/address/0x351544927a64a458a87a91c33718487098873b87"
+               class="ui huge default button">Smart Contract</a>
+        </div>
+
+    </div>
+
+<div class="ui container vertical stripe">
+    <h1 class="ui header center aligned">Why should you get Proof of Masternode (POMN)?</h1>
+    <div class="ui container center align vertical heading-container">
+    <h1 class="ui header center aligned">Historical Growth of POMN</h1>
+    <br/>
+    <div class="ui container">
+        <div><iframe width="100%" height="335" src="https://ethereumprice.org/" allowfullscreen></iframe></div>
+        </div>
+    </div>
+  </div>
+    <div class="ui vertical stripe features">
+        <div class="ui equal width stackable grid">
+            <div class="center aligned row">
+                <div class="column">
+                    <div class="icon-main">
+                        <i class="fas fa-cogs"></i>
+                    </div>
+                    <h3>The Structure</h3>
+                    <hr class="line"/>
+                    <p>When someone buys or sells a Proof of Masternode (POMN), 20% of the buy and 25% of the sell price is split by the total number of coins and given as locked-in rewards (priced in Ether) to all existing HODLers based on how many POMN Coins they own.</p>
+                </div>
+                <div class="column">
+                    <div class="icon-main">
+                        <i class="fas fa-gift"></i>
+                    </div>
+                    <h3>The Rewards</h3>
+                    <hr class="line"/>
+                    <p>20% of every buy and 25% of every sell will be rewarded to token holders. Masters of the Node will be rewarded through every crash and pump. The smart contract, unlike other sites, will allow you to directly convert your rewards back coins, increasing your ability to earn more rewards.</p>
+                </div>
+                <div class="column">
+                    <div class="icon-main">
+                        <i class="fas fa-sync-alt"></i>
+                    </div>
+                    <h3>Built To Last</h3>
+                    <hr class="line"/>
+                    <p>Seriously, no self destruct, no exit scam. This contract will fluctuate in price and pay out rewards until the Ethereum network no longer exists. At any time, you can sell your POMN Coins back to the smart contract atr the current sell price, or withdraw/convert the rewards you've accumulated!                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="faq">
+    <div class="ui container">
+        <h1 class="ui header inverted center aligned">Frequently Asked Questions</h1>
+		<div class="ui segment">
+    <h4>Q: Is this a real thing?</h4>
+    <p>A: Yes, POMN is built on the Ethereum blockchain. They have no value outside of engaging in the decentralized game with the AI BOT however, you SHOULD NOT consider them a real investment or asset class with any intrinsic value OF ANY FORM.</p>
+</div>
+<div class="ui segment">
+    <h4>Q: Wasn't there something similar to this earlier?</h4>
+    <p>A: Yes, there are several variations of sites like ours; Proof of Masternode is the next step forward with convertible rewards and 25% redistribution on sell and 15% of the total purchase when someone uses your Masternode!</p>
+</div>
+<div class="ui segment">
+    <h4>Q: Is this site secure?</h4>
+    <p>A: Yes. Our developer team put a lot of time into refining and testing this contract to make sure your Coins and ETH are safe. Internal functions of the contract are not accessible to anyone.    <p>
+</div>
+<div class="ui segment">
+    <h4>Q: What do I need to play this <s>Ethereum</s> dApp Game?</h4>
+    <p>A: You need to install <a href="https://metamask.io/">MetaMask</a> and also need to have some Ether (ETH). If you do not have any ETH, you can get it from places like ShapeShift, Changelly or other exchanges. You can find more in depth instruction on <a href="/how-to-play">How To Play!</a></p>
+</div>
+<div class="ui segment">
+    <h4>Q: Are you planning to steal our Ether?</h4>
+    <p>A: No. I am not a scammer and would never do anything like that to any participants. Besides, the smart contract was designed to prevent such acts like that from occurring.</p>
+</div>
+<div class="ui segment">
+    <h4>Q: So exactly what happens with the POMN Coins that I buy?</h4>
+    <p>
+		A: Every time someone buys or sells POMN Coins, the price changes - 0.2% higher upon buy, 0.2% lower upon sell. If you keep your POMN Coins where they are, you receive a percentage from every buy OR sell transaction based upon your current amount of POMN Coins. You can convert your POMN Coins into Ether where it will sit in your rewards pool - your rewards are stored in ETH, not in POMN Coins, so their value remains stable (as long as the ETH price itself remains stable.) However once you've converted your POMN Coins, you won't gain any rewards unless you decide to put your ETH back into game.    </p>
+</div>
+<div class="ui segment">
+    <h4>Q: Hmm, sounds interesting. Can you tell me more?</h4>
+    <p>
+		A: Our system mitigates the risk of fast dumping by penalizing sellers for doing so. If there is a sell off period, you will still be collecting rewards, as well as gain a larger portion of the total POMN Coins in the process. If a buy/sell cycle occurs, POMN Coins holders will still collect rewards off the sales, in addition to gaining a larger portion of the total POMN Coins in the process. This way, those who attempt to time the market and perform swing trades; selling high and re-buying low, will be risking a lot - and losing out on soaking up all those precious rewards. If you'd prefer to sit back and play it safe you will profit off of the madness of the greedy whales and weak-handed alike.    </p>
+</div>
+<div class="ui segment">
+    <h4>Q: So I should definitely get into credit card debt to play this game?</h4>
+    <p>
+		A: NO. You most certainly should not be putting anything you can't afford to lose on this. PLEASE do not consider this to be anything other than what it intends to be. It is a game, and should be treated as such. Do not put anything in here that you are not immediately willing to treat as lost.    </p>
+</div>
+<div class="ui segment">
+    <h4>Q: So what is that you guarantee exactly?</h4>
+    <p>
+		A: Nothing. Seriously. Our game by definition, is a zero sum game. The risk is entirely yours. Tread carefully. Good luck and have fun! And remember, it's internet monopoly money. Don't do anything you'll lose sleep (or your family) over.    </p>
+</div>
+    </div>
+</div>
+<div class="ui inverted vertical footer segment">
+    <div class="ui container">
+        <div class="ui stackable inverted divided equal height stackable grid">
+            <div class="three wide column">
+                <div class="ui inverted link list">
+                    <a class="item" href="/">Home</a>
+                    <a class="item" href="/dashboard">My Coins</a>
+                    <a class="item" href="/how-to-play">How To Play</a>
+                    <a class="item" href="#">Smart Contract</a>
+                </div>
+            </div>
+
+            <div class="three wide column">
+                <h4 class="ui inverted header">Social</h4>
+                <div class="ui inverted link list">
+                    <a href="https://discord.gg/ecpjFds" target="_blank" class="item">Discord</a>
+                </div>
+            </div>
+
+            <div class="ten wide column">
+                <h4 class="ui inverted header">Disclaimer</h4>
+                <p>
+                    This game is intended for entertainment purposes only. Do not send any ETH you do not want to or cannot afford to lose. There is zero guarantee that you will make ETH playing this game. And more importantly, zero guarantee that you won't lose any ETH you play with. Play at your own risk and do not attempt to pressure friends, family or strangers into playing too. In fact, you shouldn't even play yourself.                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+</div>
+
+<script src="https://pomn.co/cdn.plot.ly/plotly-latest.min.js"></script>
+    <script src="https://pomn.co/js/ethbalancegraph.js"></script>
+<script>graphBalance();</script>
+
+</body>
+
+</html>
+
