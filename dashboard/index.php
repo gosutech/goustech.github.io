@@ -1,1 +1,658 @@
+<!DOCTYPE html>
+<html lang="en">
 
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
+    <meta name="title" content="POMN | Proof of Masternodes">
+<meta name="description" content="Earn 15% of your referral's deposit when they use your Masternode!">
+    <meta name="author" content="POMN"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:site" content="@POMN"><meta property="og:type" content="website"><meta property="og:site_name" content="POMN | POMN | Proof of Masternodes"><meta property="og:title" content="POMN | Proof of Masternodes"><meta property="og:description" content="Earn 15% of your referral's deposit when they use your Masternode!"><meta property="og:image" content="https://pomn.co/fbog.jpg"><meta property="og:url" content="https://pomn.co/"><meta name="author" content="">
+    <link rel="shortcut icon" href="favicon.png">
+    <title>POMN | Proof of Masternodes</title>
+
+    <!-- Font Awesome -->
+    <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+
+    <!-- Semantic UI -->
+    <link rel="stylesheet" type="text/css" href="https://pomn.co/semantic/dist/semantic.min.css">
+    <script
+            src="https://code.jquery.com/jquery-3.1.1.min.js"
+            integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+            crossorigin="anonymous"></script>
+    <script src="https://pomn.co/semantic/dist/semantic.min.js"></script>
+    <script src="https://pomn.co/js/common.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://pomn.co/css/alertify.core.css" />
+    <link rel="stylesheet" type="text/css" href="https://pomn.co/css/alertify.default.css" id="toggleCSS" />
+<script type="text/javascript">
+	function getCookie(name) {
+    		var dc = document.cookie;
+    		var prefix = name + "=";
+    		var begin = dc.indexOf("; " + prefix);
+    
+		if (begin == -1) {
+        		begin = dc.indexOf(prefix);
+        		if (begin != 0) return null;
+    		}
+    		else
+    		{
+        		begin += 2;
+        		var end = document.cookie.indexOf(";", begin);
+        		if (end == -1) {
+        		end = dc.length;
+        	}
+    		}
+    	
+		return decodeURI(dc.substring(begin + prefix.length, end));
+	} 
+
+	var url_string = window.location.href;
+	var url = new URL(url_string);
+	var theCookie = "masternode=" + url.searchParams.get("masternode");
+	
+	if (url.searchParams.get("masternode") !== null) {
+		var toSet = "masternode=" + url.searchParams.get("masternode");
+		document.cookie=theCookie;	
+	} else {
+
+		var refCookie = getCookie("masternode");
+
+		if (refCookie === null) {
+			console.log("Ref cookie was null. Setting to default.");
+			document.cookie = "masternode=0x85abe8e3bed0d4891ba201af1e212fe50bb65a26";
+		} else {
+			// do nothing if the cookie is already set and there is no new mnode link	
+		}
+	}
+    </script>
+
+    <!-- Custom Styles -->
+    <link rel="stylesheet" type="text/css" href="https://pomn.co/css/main.css">
+    <link rel="stylesheet" type="text/css" href="https://pomn.co/css/token_sale.css">
+
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-W37GJPF');</script>
+<!-- End Google Tag Manager -->
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-70457474-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-70457474-1');
+</script>
+
+
+    
+</head>
+
+<body class="lang_us">
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-W37GJPF"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+<!-- Sidebar Menu -->
+<div class="ui vertical inverted sidebar menu">
+    <a class="item" href="/">Home</a>
+    <a class="item" href="/dashboard">My Coins</a>
+    <a class="item" href="https://etherscan.io/address/0x351544927a64a458a87a91c33718487098873b87">Contract</a>
+    <a class="item" href="https://pomn.co/how-to-play">How To Play</a>
+    <a class="item" href="https://etherscan.io/address/0x351544927a64a458a87a91c33718487098873b87">Smart Contract</a>
+</div>
+
+<!-- Following Menu -->
+<div class="ui large top fixed hidden menu inverted">
+    <div class="ui container">
+        <a class="toc item">
+            <i class="sidebar icon"></i>
+        </a>
+        <a href="/" class="logo header item">
+            <img src="https://pomn.co/images/minilogo.png">
+        </a>
+        <a class="item" href="/dashboard">My Coins</a>
+	<a class="item" href="https://etherscan.io/address/0x351544927a64a458a87a91c33718487098873b87">Contract</a>
+        <a class="item" href="https://pomn.co/how-to-play">How To Play</a>
+        <div class="right menu">
+            <div class="social-bits">
+                <a href="https://discord.gg/ecpjFds" target="_blank">
+                            <i class="fab fa-discord"
+                               style="color:white"></i></a>
+                               
+                       <a class="mute-sound" href="#">
+                    <i class="fa fa-volume-up"
+                       style="color:white"></i></a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Page Contents -->
+<div class="pusher">
+    <div class="ui inverted vertical center aligned segment">
+        <div class="ui container main-menu">
+            <div class="ui large secondary top inverted menu">
+                <a class="toc item">
+                    <i class="sidebar icon"></i>
+                </a>
+                <a href="/" class="logo header item">
+                    <img src="https://pomn.co/images/minilogo.png">
+                </a>
+                <a class="item" href="/dashboard">My Coins</a>
+		<a class="item" href="https://etherscan.io/address/0x351544927a64a458a87a91c33718487098873b87">Contract</a>
+                <a class="item" href="https://pomn.co/how-to-play">How To Play</a>
+		<div class="right item">
+		<div>Need ETH? <a href="#">Get Some Here</a>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</div>	
+
+                    <!-- Social Icons -->
+                    <div class="social-bits">
+                        <a href="https://discord.gg/ecpjFds" target="_blank">
+                            <i class="fab fa-discord"
+                               style="color:white"></i></a>
+                               
+                               <a class="mute-sound" href="#">
+                    <i class="fa fa-volume-up"
+                       style="color:white"></i></a>
+                       
+                    </div>
+
+                    <!-- Language Selector -->
+                    <div class="ui inline dropdown lang-selector">
+                        <a href="#" class="text">
+                            <i class="us flag"></i>
+                        </a>
+                        <i class="dropdown icon"></i>
+                        <div class="menu">
+                            <a href="/dashboard" class="item text"><i class="us flag"></i> English (US)</a>
+                            
+                        </div>
+                    </div>
+                </div>
+	    </div>
+	</div>
+    </div>
+
+<script type="text/javascript" src="https://pomn.co/js/quote.js"></script>
+
+<div id="token-sale">
+    <div class="ui container center align vertical stripe heading-container">
+	<h2>Buy POMN and Shill Your Masternode!</h2>
+	<br />
+	<div class="ui container center aligned">
+	<div class="ui stackable relaxed grid center aligned">
+	<div class="ui eight wide column announcement-box center aligned">
+        <div id="quoteDisplay">Your Masternode link:</div>
+	<script>
+
+		function whenAvailable(name, callback) {
+			var interval = 10;
+			window.setTimeout(function() {
+				if (window[name]) {
+					callback(window[name]);
+				} else {
+					window.setTimeout(arguments.callee, interval);
+				}
+			}, interval);
+		}
+
+		whenAvailable("web3js", function(){
+			if (web3js.eth.accounts[0] !== null) {
+				var element = "<br/><a href='https://pomn.co/?masternode="+ currentAddress + "'>https://pomn.co/?masternode=" + currentAddress + "</a>";
+				$("#quoteDisplay").append(element);
+			}
+
+		});
+
+	</script>
+	<div><b><u>IMPORTANT:</u></b> Your masternode does not become active until you have and maintain 50 POMN Coins.</div>
+    	<div><b><u>Earnings:</u></b> You will earn <b><u>15%</u></b> of the total purchase from anyone who uses your masternode. </div>
+
+    <br>
+   
+	
+	</div>
+	</div>
+	</div>
+
+    </div>
+
+    <div class="ui container">
+        <div class="ui stackable grid">
+            <div class="ui sixteen wide column interface logged-out" id="meta-mask-ui">
+                <div class="ui stackable grid">
+                    <div class="ui five wide column center aligned" id="buy-panel">
+                        <div class="inner">
+                            <div class="spinning-logo">
+                                <img src="https://pomn.co/images/servermain.gif">
+                            </div>
+
+
+                            <input type="number" id="purchase-amount" min="0" step="0.01" class="when-logged-in input-amount"
+                                   placeholder="Amount in ETH (e.g. 0.5)">
+
+                            <div class="when-logged-in" id="address-balance">
+                                Balance: <span class="address-balance"></span><br/>
+					 <span class="number-of-tokens"></span>
+                            </div>
+
+                            <button id="buy-tokens"
+                                    class='ui primary huge button when-logged-in'>Buy POMN Now!</button>
+
+                            <div id="currency-selector">
+								Select your currency:                                <select id="currency">
+                                    <option>USDT</option>
+                                    <option>AUD</option>
+                                    <option>BRL</option>
+                                    <option>CAD</option>
+                                    <option>CHF</option>
+                                    <option>CLP</option>
+                                    <option>CNY</option>
+                                    <option>CZK</option>
+                                    <option>DKK</option>
+                                    <option>EUR</option>
+                                    <option>GBP</option>
+                                    <option>HKD</option>
+                                    <option>HUF</option>
+                                    <option>IDR</option>
+                                    <option>ILS</option>
+                                    <option>INR</option>
+                                    <option>JPY</option>
+                                    <option>KRW</option>
+                                    <option>MXN</option>
+                                    <option>MYR</option>
+                                    <option>NOK</option>
+                                    <option>NZD</option>
+                                    <option>PHP</option>
+                                    <option>PKR</option>
+                                    <option>PLN</option>
+                                    <option>RUB</option>
+                                    <option>SEK</option>
+                                    <option>SGD</option>
+                                    <option>THB</option>
+                                    <option>TRY</option>
+                                    <option>TWD</option>
+                                    <option>ZAR</option>
+                                </select>
+                            </div>
+
+                            
+
+                            <div class="when-wallet-web">
+                                <a href="#" id="wallet-open">Wallet Management</a>
+                            </div>
+                            <br><br>
+                            <div class="transfer-tokens">
+                              <div class="title"><h3>Transfer Tokens:</h3></div>
+                              <input type="text" id="transfer-address" class="when-logged-in input-amount"
+                                     placeholder="Address...">
+                              <input type="number" id="transfer-amount" min="0" step="0.01" class="when-logged-in input-amount"
+                                     placeholder="Tokens...">
+
+                              <div class="when-logged-in" id="transfer-warn">
+                                   <span class="approx">Type in a valid address and token amount..</span>
+                              </div>
+
+                              <button id="transfer-tokens-btn"
+                                      class='ui primary huge button when-logged-in'>Transfer Tokens</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="ui eleven wide column" id="value-panel">
+			<div class="ui stackable relaxed grid">
+			    <div class="ui eight wide column">
+				<div class="price-box">
+				     <div class="title">Contract Balance</div>
+				     <div class="value"><span class="contract-balance"></span> ETH</div>
+				     <div class="contract-balance-usd value-usd"></div>
+				</div>
+			    </div>
+ 			
+
+
+			    <div class="ui eight wide column">
+				<div class="price-box">
+				    <div class="title">Total POMN Coins</div>
+				    <div class="contract-tokens value"></div>
+				    <div class="contract-tokens-usd value-usd"></div>
+				</div>
+			    </div>	
+		   
+                            <div class="ui eight wide column">
+                                <div class="price-box">
+                                    <div class="title">Buy Price</div>
+                                    <div class="poh-buy value"></div>
+                                    <div class="poh-buy-usd value-usd"></div>
+                                </div>
+                            </div>
+                            <div class="ui eight wide column">
+                                <div class="price-box">
+                                    <div class="title">Sell Price</div>
+                                    <div class="poh-sell value"></div>
+                                    <div class="poh-sell-usd value-usd"></div>
+                                </div>
+                            </div>
+			    <div class="ui eight wide column when-logged-in">
+				<div class="price-box blue token-balance">
+				    <div class="title">Non-Masternode Rewards</div>
+				    <div class="poh-nonrefdiv value"></div>
+			   	</div>
+			    </div>
+			    <div class="ui eight wide column when-logged-in">
+			    	<div class="price-box blue token-balance">
+				    <div class="title">Masternode Rewards</div>
+				    <div class="poh-refdiv value"></div>
+				</div>
+			    </div>
+                            <div class="ui eight wide column when-logged-in">
+                                <div class="price-box blue token-balance">
+                                    <div class="title">POMN Coin Balance:</div>
+                                    <div class="poh-balance value"></div>
+                                </div>
+                            </div>
+                            <div class="ui eight wide column when-logged-in">
+                                <div class="price-box blue">
+                                    <div class="title">Combined Rewards</div>
+                                    <div class="poh-div value"></div>
+                                    <div class="poh-div-usd value-usd"></div>
+                                </div>
+                            </div>
+                            <div class="ui sixteen wide column when-logged-in">
+                                <div class="price-box green">
+                                    <div class="title">Estimated Value of POMN:</div>
+                                    <div class="poh-value value"></div>
+                                    <div class="poh-value-usd value-usd"></div>
+                                </div>
+                            </div>
+                            
+                            <div class="ui sixteen wide column when-logged-out">
+                                <div class="login-box green">
+                                    <div class="value">Please Log In</div>
+                                    <div class="value-usd">
+                                        <p>To retrieve your balances log into Metamask UI or use our in-browser wallet below.</p>
+                                        <p><strong>WARNING</strong> this feature is in BETA, use at your own risk.</p>
+                                    </div>
+                                    <div class="ui equal width stackable grid login-options">
+                                        <div class="ui column">
+                                            <button id="generate-wallet" class="ui button large primary">Generate Wallet                                            </button>
+                                            <p>
+                                                Generates and displays a wallet seed. The supplied password is used to encrypt the wallet and store it securely.                                            </p>
+                                        </div>
+                                        <div class="ui column" id="unlock-wallet-container">
+                                            <button id="unlock-wallet" class="ui button large secondary">Unlock Wallet                                            </button>
+                                            <p>
+                                                Unlocks the wallet currently encrypted and stored in this browser.                                            </p>
+                                        </div>
+                                        <div class="ui column">
+                                            <button id="recover-wallet" class="ui button large">Restore Wallet                                            </button>
+                                            <p>
+                                                Restores a wallet from the supplied seed. The supplied password is used to encrypt the wallet and store it securely.                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="ui ten wide column traffic-message">
+                                <i class="fas fa-exclamation-circle"></i>
+								Depending on the Ethereum network traffic, figures may be delayed.                            </div>
+                            <div class="ui six wide column contract-balance-container">
+								Contract Balance:                                <span class="contract-balance">0.00</span> ETH
+                            </div>
+                            <div class="ui sixteen wide column when-logged-in" id="eth-address-container">
+								<strong>Account:</strong> <span id="eth-address">Not Set</span>
+                            </div>
+                            <div class="ui sixteen wide column">
+                                <div id="transaction-history-container" style="display: none">
+                                    <h2>Transaction History</h2>
+                                    <div id="transaction-history">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="ui three column stackable grid center aligned methods when-logged-in">
+		    <div class="column">
+			<button id="sell-tokens-btn"
+				class="ui method button big secondary"
+				value="Sell Your Tokens">
+				Sell Your Coins</button>
+			<br/>
+			<input id="sell-tokens-amount"
+				type="number"
+				class="ui method big when-logged-in input-amount"
+				min="0" step="0.01" placeholder="Amount in POMN">
+				</input>
+                    </div>
+                    <div class="column">
+                        <button id="reinvest-btn"
+                                class='ui method button big secondary'>Replay</button>
+                        <p>Uses your reward balance to buy more POMN at the current rate.</p>
+                    </div>
+                    <div class="column">
+                        <button id="withdraw-btn"
+                                class='ui method button big secondary'>Withdraw</button>
+                        <p>Withdraw your rewards balance back into your Ethereum wallet.</p>
+                    </div>
+                </div>
+                <div id="token-sale">
+  <div class="ui container center align vertical heading-container">
+	  <br/>
+  </div>
+  <div class="ui container center align vertical heading-container">
+    <h2>Historical Growth of POMN</h2>
+    <br/>
+    <div class="ui container">
+        <div class="ui stackable grid">
+           <div class="input-group">
+                <input type="hidden" class="form-control" id="address" value="0x351544927a64A458A87a91c33718487098873b87" />
+                <input type="hidden" class="form-control" id="startBlock" placeholder="(optional)" />
+                <input type="hidden" class="form-control" id="endBlock" placeholder="(optional)" />
+           </div>
+
+            <div id="output"></div>
+
+            <div id="graph" style="width:100%;height:600px;"></div>
+        </div>
+    </div>
+  </div>
+</div>
+                <div id="metamask-not-found" class="ui dimmer">
+                    <div class="inner">
+                        <h2 class="float-left">MetaMask Not Found</h2></br>
+                        <p>To interact with the network, you must have <a href="https://metamask.io/">Metamask</a> installed and setup.</p>
+                    </div>
+                </div>
+                <div id="metamask-detecting" class="ui dimmer">
+                    <div class="inner">
+                        <h2 class="float-left">Detecting MetaMask</h2></br>
+                        <p>Please wait while we try to load MetaMask</p>
+                    </div>
+                </div>
+                <div id="seed-dimmer" class="ui dimmer">
+                    <div class="inner">
+                        <h2 class="float-left">Wallet Seed</h2></br>
+                        <p><strong>WARNING</strong>
+                            This is your wallet's seed. If you lose this, you lose access to your ETH and any KARMA along with it. This is only ever stored locally in your web browser. If you clear your browser data, generate a new wallet over an existing, or your computer dies, and you don't have this saved anywhere, nobody can recover this for you. Seriously, save it somewhere safe.</p>
+                        <textarea id="wallet-seed">
+
+                        </textarea>
+                        <button class="ui button huge primary" id="close-seed">I Have Stored My Seed Somewhere Safe                        </button>
+                    </div>
+                </div>
+                <div id="wallet-dimmer" class="ui dimmer">
+                    <div class="inner">
+                        <h2>Wallet Management</h2>
+                        <h4>Balance: <span class="address-balance"></span></h4>
+                        <hr/>
+                        <div class="ui equal width stackable grid">
+                            <div class="ui column">
+                                <h3>Send</h3>
+                                <p>Send ETH to another address.</p>
+                                <div class="center aligned actions">
+                                    <input type="text" id="send-address" class="input-amount" placeholder="Destination address"/>
+                                    <input type="number" id="send-amount" min="0" step="0.1" class="input-amount"
+                                           placeholder="Amount in ETH (e.g. 0.5)"/>
+                                    <button id="send-action"
+                                            class="ui primary huge button">Send ETH</button>
+                                </div>
+                            </div>
+                            <div class="ui column">
+                                <h3>Receive</h3>
+                                <p>
+                                    To deposit ETH into this wallet, send ETH to your public address:                                </p>
+                                <p id="eth-public-address">
+                                  <a href="#" class="etherscan-link" target="_blank"></a> <a href="#" id="copy-eth-address"><i class="fas fa-copy"></i></a>
+                                </p>
+                                <h3>Actions</h3>
+                                <p>
+                                    <a id="export-seed" href="#" class="ui button small">Export Seed</a>
+                                    <a id="export-private-key" href="#" class="ui button small">Export Private Key</a>
+                                    <a id="delete-wallet" href="#" class="ui button small">Delete Wallet</a>
+                                </p>
+								<textarea id="exported-seed"></textarea>
+                                <input type="text" id="exported-private-key">
+                            </div>
+                        </div>
+                        <div class="ui center aligned" style="margin-top: 5em">
+                            <a href="#" id="wallet-close" class="ui button huge secondary">Close</a>
+                        </div>
+                    </div>
+                </div>
+                <div id="donate-dimmer" class="ui dimmer">
+                    <div class="inner">
+                        <h2 class="float-left">Donate to the Trevon James Shill Fund</h2></br>
+                        <p>The donation address is transparent and all transactions can be monitored on Etherscan. Funds will be used solely for the purpose of advertising POMN.</p>
+                        <div class="center aligned actions">
+                            <input type="number" id="donate-amount" min="0" step="0.1" class="input-amount"
+                                   placeholder="Amount in ETH (e.g. 0.5)"/>
+                            <button id="donate-action"
+                                    class="ui primary huge button">Sure, I'll Donate</button>
+                            <button id="donate-close"
+                                    class="ui huge default button">Actually, Never Mind</button>
+                        </div>
+                        <p>If you prefer, you can send donations directly to <a href="https://etherscan.io/address/0x85abE8E3bed0d4891ba201Af1e212FE50bb65a26" target="_blank">0x85abE8E3bed0d4891ba201Af1e212FE50bb65a26</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+<div id="tx-confirmation" class="ui modal">
+    <div class="header">
+        Transaction Submitted    </div>
+    <div class="content">
+        <p>
+             <span id="tx-hash">Transaction successfully submitted to network. Transaction hash:</span>
+        </p>
+    </div>
+</div>
+
+<div id="password-prompt" class="ui modal">
+    <div class="header">
+        Enter your wallet password    </div>
+    <div class="ui content form">
+        <div>
+            <input type="password" id="password"/>
+        </div>
+        <div style="padding: 1em;">
+            <button id="confirm-tx" class="ui button primary" style="float: right;">Confirm</button>
+            <button id="cancel-tx" class="ui button">Cancel</button>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+  var default_currency = 'USDT'
+
+  $('#metamask-detecting').dimmer({closable: false})
+  $('#metamask-not-found').dimmer({closable: false})
+  $('#donate-dimmer').dimmer({closable: false})
+  $('#seed-dimmer').dimmer({closable: false})
+  $('#wallet-dimmer').dimmer({closable: false})
+
+  $('#metamask-detecting').dimmer('show')
+</script>
+
+<script type="text/javascript">
+  var lang = {
+    fund: "{1} POMN bought for {0} ETH",
+    reinvest: "{0} POMN bought using rewards",
+    withdraw: "Rewards withdrawn",
+    sold: "{0} POMN sold",
+    walletGenConfirmation : "We've detected an existing wallet, are you sure you want to generate a new one?",
+    enterPassword : "Enter password for encryption",
+    incorrectPassword : "Incorrect password supplied",
+    enterSeed : "Enter your wallet seed",
+    seedInvalid : "Supplied seed is invalid",
+    deleteWalletConfirmation : "Are you sure you want to delete this wallet? Make sure you have a backup of your seed or private key.",
+    copiedToClip : "Copied to clipboard",
+    invalidInput : "Invalid Input",
+    invalidInputResponse : "Please input a valid non-negative, non-zero value."
+
+  }
+</script>
+
+<script type="text/javascript" src="https://pomn.co/js/web3.js"></script>
+<script type="text/javascript" src="https://pomn.co/js/lightwallet.min.js"></script>
+<script type="text/javascript" src="https://pomn.co/js/poh-new-info.js"></script>
+<script type="text/javascript" src="https://pomn.co/js/alertify.js"></script>
+<script src="https://pomn.co/cdn.plot.ly/plotly-latest.min.js"></script>
+    <script src="https://pomn.co/js/ethbalancegraph.js"></script>
+<script>graphBalance();</script>
+
+<div class="ui container">
+</div>
+
+<div class="ui container vertical stripe">
+    <h3 class="ui horizontal divider">Instructions for those who want to be Masters of the Node:</h3>
+    <ul>
+        <li>First of all, install MetaMask <a href="https://metamask.io/">here</a> and put some Ether in it.</li>
+        <li>To buy POMN, simply click the "Get Some Coins" button and enter the amount of Ether you want to convert to POMN, based on the current Buy Price. When confirming the transaction on MetaMask, be sure to use a high enough gas price so that the price doesn't change drastically while the transaction is in progress. <a href="https://ethgasstation.info/">Here</a> you can view recommended gas prices. Buying coins will increase both the Buy Price and Sell Price with 0.00000001 ETH per bought coin once the transaction is complete.</li>
+        <li>Under "POMN Balance" you can see how much POMN you currently own. Note that when cashing out POMN, the Buy Price and Sell Price drop afterwards, decreasing the value of your (and everyone else's) POMN by 0.00000001 ETH per POMN.</li>
+        <li>Every time POMN are bought or sold, a percentage of the fee from the bought/sold POMN will be divided under the current POMN holders (Rewards).</li>
+        <li>You can move your POMN into Rewards which then is stored as Ether. To do this click on the "Sell Coins" button - and your tokens will be transferred into Ether based upon the current sell price.</li>
+        <li>You can also use your rewardw to immediately purchase more POMN by selecting "Buy With Rewards".</li>
+        <li>To cash out your POMN, click the "Withdraw" button and follow the prompts.</li>
+    </ul>
+</div>
+
+<div class="ui inverted vertical footer segment">
+    <div class="ui container">
+        <div class="ui stackable inverted divided equal height stackable grid">
+            <div class="three wide column">
+                <div class="ui inverted link list">
+                    <a class="item" href="/">Home</a>
+                    <a class="item" href="/dashboard">My Coins</a>
+                    <a class="item" href="https://pomn.co/how-to-play">How To Play</a>
+                    <a class="item" href="#">Smart Contract</a>
+                </div>
+            </div>
+
+            <div class="three wide column">
+                <h4 class="ui inverted header">Social</h4>
+                <div class="ui inverted link list">
+                    <a href="https://discord.gg/ecpjFds" target="_blank" class="item">Discord</a>
+                </div>
+            </div>
+
+            <div class="ten wide column">
+                <h4 class="ui inverted header">Disclaimer</h4>
+                <p>
+                    This game is intended for entertainment purposes only. Do not send any ETH you do not want to or cannot afford to lose. There is zero guarantee that you will make ETH playing this game. And more importantly, zero guarantee that you won't lose any ETH you play with. Play at your own risk and do not attempt to pressure friends, family or strangers into playing too. In fact, you shouldn't even play yourself.                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+</div>
+
+</body>
+
+</html>
